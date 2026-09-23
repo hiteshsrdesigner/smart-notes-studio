@@ -66,8 +66,12 @@ export default function InputScreen() {
 
   return (
     <div className="min-h-screen bg-app-bg flex flex-col items-center px-6 py-14">
-      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-app-crimson to-red-400 flex items-center justify-center text-white font-extrabold text-lg font-doc mb-4">
-        SN
+      <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 overflow-hidden bg-white">
+  <img
+    src="https://iili.io/nAIPc2p.png"
+    alt="Office Logo"
+    className="w-full h-full object-contain"
+  />
       </div>
       <h1 className="font-doc text-2xl font-extrabold text-app-navy mb-1">Smart Notes Studio</h1>
       <p className="text-app-muted text-sm mb-10">Create professional study notes from typed PDFs or text.</p>
