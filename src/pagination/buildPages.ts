@@ -33,7 +33,11 @@ export function buildPages(doc: DocumentModel): BuiltPages {
 
   const headerHtml = `
     <div class="logo-row">
+<<<<<<< HEAD
       ${doc.header.logoDataUrl ? `<img src="${doc.header.logoDataUrl}" style="height:${doc.header.logoHeight || 38}px">` : ""}
+=======
+      ${doc.header.logoDataUrl ? `<img src="${doc.header.logoDataUrl}">` : ""}
+>>>>>>> b233435fded8add50f35fa7cc3459e3d30b91e0b
       <div class="inst">${escapeHtml(doc.header.institute)}<div class="tagline">${escapeHtml(doc.header.tagline)}</div></div>
     </div>
     <hr>
