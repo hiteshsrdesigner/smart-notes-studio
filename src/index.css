@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --app-navy: #173a63;
+  --app-crimson: #bd3438;
+
+  --doc-primary: #16386b;
+  --doc-accent: #c0392b;
+  --doc-body: #232323;
+  --doc-secondary: #5b5b5b;
+  --doc-border: #16386b;
+  --doc-font: "Poppins", sans-serif;
+
+  /* ============================================================
+     CANONICAL A4 PAGE GEOMETRY
+     One set of numbers drives the page box, padding and border on
+     screen, in print and in the exported PDF — nothing here is
+     redefined under @media print, which is what keeps the
+     downloaded PDF pixel-for-pixel aligned with the Live Preview.
+     ============================================================ */
+  --page-w: 210mm;
+  --page-h: 297mm;
+  --pad-top: 10mm;
+  --pad-side: 12mm;
+  --pad-bottom: 17mm;
+  --border-inset-outer: 4mm;
+  --border-inset-inner: 6mm;
+  --border-w: 1.1px;
+  --rule-thickness: 1px;
+  --rule-width: 100%;
+}
+
+html, body, #root { height: 100%; }
+body { margin: 0; font-family: "Inter", system-ui, sans-serif; color: #1d2430; background: #eef1f5; }
+
+/* ---------- A4 page (screen + print share these exact rules) ---------- */
+.a4-page {
+  width: var(--page-w);
+  height: var(--page-h);
+  background: #fff;
+  position: relative;
+  box-sizing: border-box;
+  padding: var(--pad-top) var(--pad-side) var(--pad-bottom);
+  overflow: hidden;
+  font-family: var(--doc-font);
+  color: var(--doc-body);
+  flex: none;
+}
+.a4-page.shadow-screen { box-shadow: 0 6px 24px rgba(0,0,0,.16); }
+.a4-page.bordered.single::before {
+  content: ""; position: absolute; inset: var(--border-inset-outer);
+  border: var(--border-w) solid var(--doc-border); pointer-events: none;
+}
+.a4-page.bordered.double::before, .a4-page.bordered.double::after {
+  content: ""; position: absolute; border: var(--border-w) solid var(--doc-border); pointer-events: none;
+}
+.a4-page.bordered.double::before { inset: var(--border-inset-outer); }
+.a4-page.bordered.double::after { inset: var(--border-inset-inner); }
+
+.doc-header { text-align: center; margin-bottom: 14px; }
+.doc-header .logo-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 6px; }
+.doc-header img { height: 38px; object-fit: contain; }
+.doc-header .inst { font-family: "Poppins"; font-weight: 800; font-size: 22px; color: var(--doc-primary); }
+.doc-header .tagline { font-size: 10.5px; color: var(--doc-accent); font-weight: 700; margin-top: -3px; }
+.doc-header hr { border: none; border-top: 2px solid var(--doc-accent); margin: 10px 0 12px; }
+.doc-header .title { font-family: "Poppins"; font-weight: 700; font-size: 17px; color: var(--doc-primary); text-align: center; }
+.doc-header .date { font-size: 12.5px; color: var(--doc-secondary); text-align: center; font-weight: 600; margin-top: 2px; }
+
+.doc-body { font-size: 13px; line-height: 1.7; }
+.doc-body h1, .doc-body h2, .doc-body h3, .doc-body h4 { color: var(--doc-primary); font-family: "Poppins"; font-weight: 700; }
+.doc-body h2 { font-size: 14.5px; border-bottom: 1.5px solid var(--doc-accent); padding-bottom: 3px; margin: 16px 0 4px; }
+.doc-body h1:first-child, .doc-body h2:first-child { margin-top: 0; }
+.doc-body p { margin: 0 0 8px; }
+.doc-body ul, .doc-body ol { margin: 3px 0 9px; padding-left: 20px; }
+.doc-body li { margin: 2px 0; }
+/* TipTap wraps list-item text in a <p> (ProseMirror's list schema) — collapse
+   its margin so bullets stay visually tight instead of gaining paragraph gaps. */
+.doc-body li p, .ProseMirror li p { margin: 0; display: inline; }
+.doc-body b, .doc-body strong { color: #111; }
+.doc-body img { max-width: 100%; }
+
+.heading-rule {
+  border: none; border-top: var(--rule-thickness) solid var(--doc-accent);
+  width: var(--rule-width); margin: 0 0 7px 0; height: 0;
+}
+
+.doc-watermark {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: "Poppins"; font-weight: 800; font-size: 64px; color: var(--doc-primary); opacity: .06;
+  transform: rotate(-28deg); pointer-events: none; white-space: nowrap;
+}
+
+.doc-footer {
+  position: absolute; left: var(--pad-side); right: var(--pad-side); bottom: 6mm;
+  font-size: 10.5px; color: var(--doc-secondary); display: flex; justify-content: space-between;
+  border-top: 1px solid #e2e2e2; padding-top: 6px;
+}
+.doc-footer .fbrand { color: var(--doc-accent); font-weight: 700; }
+
+.page-wrap { position: relative; flex: none; }
+
+/* ---------- editor (TipTap ProseMirror content) ---------- */
+.ProseMirror { outline: none; font-family: var(--doc-font); font-size: 14.5px; line-height: 1.65; color: #1c1c1c; min-height: 100%; }
+.ProseMirror h1, .ProseMirror h2 {
+  color: var(--doc-primary); font-family: "Poppins"; font-weight: 700; font-size: 17px;
+  border-bottom: 2px solid var(--doc-accent); padding-bottom: 4px; margin: 20px 0 8px;
+}
+.ProseMirror h1:first-child, .ProseMirror h2:first-child { margin-top: 0; }
+.ProseMirror ul { padding-left: 22px; }
+.ProseMirror li { margin: 3px 0; }
+.ProseMirror li::marker { color: var(--doc-accent); }
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder); color: #9aa1ad; float: left; height: 0; pointer-events: none;
+}
+
+/* ---------- print root: hidden on screen, canonical print/export markup ---------- */
+#print-root { display: none; }
+
+@media print {
+  html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; height: auto !important; width: 210mm; }
+  body * { visibility: hidden; }
+  #print-root, #print-root * { visibility: visible; }
+  #print-root { display: block !important; position: absolute; left: 0; top: 0; width: 100%; margin: 0; }
+  #print-root .a4-page { box-shadow: none !important; page-break-after: always; break-after: page; }
+  #print-root .a4-page:last-child { page-break-after: auto; break-after: auto; }
+  #print-root .doc-body h1, #print-root .doc-body h2 { break-after: avoid; page-break-after: avoid; }
+  @page { size: A4 portrait; margin: 0; }
+}
