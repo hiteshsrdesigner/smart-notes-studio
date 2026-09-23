@@ -35,7 +35,6 @@ export function buildPages(doc: DocumentModel): BuiltPages {
     <div class="logo-row">
 
       ${doc.header.logoDataUrl ? `<img src="${doc.header.logoDataUrl}" style="height:${doc.header.logoHeight || 38}px">` : ""}
-      ${doc.header.logoDataUrl ? `<img src="${doc.header.logoDataUrl}">` : ""}
 
       <div class="inst">${escapeHtml(doc.header.institute)}<div class="tagline">${escapeHtml(doc.header.tagline)}</div></div>
     </div>
