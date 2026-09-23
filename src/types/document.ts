@@ -20,10 +20,9 @@ export interface HeaderSettings {
   title: string;
   date: string;
   logoDataUrl: string | null;
-<<<<<<< HEAD
+
   logoHeight: number; // px, applied to the logo image in the header
-=======
->>>>>>> b233435fded8add50f35fa7cc3459e3d30b91e0b
+
 }
 
 export interface BorderSettings {
@@ -84,10 +83,9 @@ export function defaultDocument(): DocumentModel {
       title: "DAILY CURRENT AFFAIRS",
       date: "",
       logoDataUrl: null,
-<<<<<<< HEAD
+
       logoHeight: 38,
-=======
->>>>>>> b233435fded8add50f35fa7cc3459e3d30b91e0b
+
     },
     border: {
       enabled: true,

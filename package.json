@@ -33,11 +33,8 @@
     "postcss": "^8.4.41",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4",
-<<<<<<< HEAD
-    "vite": "^5.4.2"
-=======
     "vite": "^7.3.6"
->>>>>>> b233435fded8add50f35fa7cc3459e3d30b91e0b
+
   },
   "description": "Typed PDF / Text -> professional A4 study notes, with a real live preview and print-accurate PDF export."
 }

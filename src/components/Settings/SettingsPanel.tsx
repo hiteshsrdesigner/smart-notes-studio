@@ -66,7 +66,7 @@ export default function SettingsPanel() {
       <Field label="Logo">
         <input type="file" accept="image/*" onChange={(e) => onLogo(e.target.files?.[0] ?? null)} className="text-xs" />
       </Field>
-<<<<<<< HEAD
+
       <Field label={`Logo size — ${doc.header.logoHeight}px`}>
         <input
           type="range"
@@ -78,8 +78,6 @@ export default function SettingsPanel() {
           className="w-full"
         />
       </Field>
-=======
->>>>>>> b233435fded8add50f35fa7cc3459e3d30b91e0b
 
       <SectionTitle>Bullets</SectionTitle>
       <div className="flex gap-1.5 flex-wrap mb-1">
