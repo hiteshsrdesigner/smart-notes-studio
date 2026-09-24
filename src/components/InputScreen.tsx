@@ -73,7 +73,7 @@ export default function InputScreen() {
     className="w-full h-full object-contain"
   />
       </div>
-      <h1 className="font-doc text-2xl font-extrabold text-app-navy mb-1">Smart Notes Studio</h1>
+      <h1 className="font-doc text-2xl font-extrabold text-app-navy mb-1">SRIAS Notes Studio</h1>
       <p className="text-app-muted text-sm mb-10">Create professional study notes from typed PDFs or text.</p>
 
       <div className="grid md:grid-cols-2 gap-5 w-full max-w-3xl">
