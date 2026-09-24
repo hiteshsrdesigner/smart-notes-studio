@@ -68,7 +68,7 @@ export default function InputScreen() {
     <div className="min-h-screen bg-app-bg flex flex-col items-center px-6 py-14">
       <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 overflow-hidden bg-white">
   <img
-    src="https://iili.io/nAIPc2p.png"
+    src="/logo.png"
     alt="Office Logo"
     className="w-full h-full object-contain"
   />
